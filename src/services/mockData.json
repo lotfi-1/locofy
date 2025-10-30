@@ -1,0 +1,63 @@
+{
+  "user": {
+    "id": "u_1001",
+    "name": "Macy Johnson",
+    "location": {
+      "country": "Philippines",
+      "city": "Baguio"
+    },
+    "bio": "I like the beach, mountains, forest and everything about nature! :)",
+    "referralCode": "NEW",
+    "profileImage": "https://example.com/images/users/macy.jpg"
+  },
+  "upcomingFlight": {
+    "id": "fl_2209",
+    "from": {
+      "city": "Singapore",
+      "code": "SIN"
+    },
+    "to": {
+      "city": "Los Angeles",
+      "code": "LAX"
+    },
+    "departureDate": "2025-05-01T08:00:00Z",
+    "daysToGo": 4,
+    "priceUSD": 1299,
+    "status": "upcoming",
+    "airline": "Pacific Air",
+    "covidAdvisory": {
+      "message": "Please check your destination’s latest COVID-19 guidelines before travel.",
+      "link": "https://example.com/covid-advisory"
+    }
+  },
+  "trendingDestinations": [
+    {
+      "id": "dest_1",
+      "name": "Boracay",
+      "country": "Philippines",
+      "duration": "5D4N",
+      "image": "https://example.com/images/boracay.jpg"
+    },
+    {
+      "id": "dest_2",
+      "name": "Baros",
+      "country": "Maldives",
+      "duration": "7D6N",
+      "image": "https://example.com/images/baros.jpg"
+    },
+    {
+      "id": "dest_3",
+      "name": "Bali",
+      "country": "Indonesia",
+      "duration": "3D2N",
+      "image": "https://example.com/images/bali.jpg"
+    },
+    {
+      "id": "dest_4",
+      "name": "Palawan",
+      "country": "Philippines",
+      "duration": "3D2N",
+      "image": "https://example.com/images/palawan.jpg"
+    }
+  ]
+}
