@@ -9,11 +9,11 @@ const mockUser: User = {
   location: { country: "Philippines", city: "Baguio" },
   bio: "I like the beach, mountains, forest and everything about nature! :)",
   referralCode: "NEW",
-  profileImage: "https://example.com/images/users/macy.jpg"
+  profileImage: ""
 };
 
 
-export async function authorization(token: string) : Promise<User | ApiError> {
+export async function authorization(token: string): Promise<User | ApiError> {
   // return await apiFetch("/authorization", {
   //   headers: {
   //     "Authorization": `Bearer ${token}`,
@@ -22,6 +22,6 @@ export async function authorization(token: string) : Promise<User | ApiError> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(mockUser);
-    }, 1000);
+    }, 2000);
   });
 }

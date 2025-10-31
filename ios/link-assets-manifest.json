@@ -2,16 +2,52 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/assets/fonts/BalooBhai2.ttf",
-      "sha1": "2be10afa97a987c2a04541ec66e88899548b39ef"
+      "path": "src/assets/fonts/BalooBhai2/BalooBhai2-Bold.ttf",
+      "sha1": "92900229c574354eac7e42355b00f4732d304069"
     },
     {
-      "path": "src/assets/fonts/Inter.ttf",
-      "sha1": "ee5c2e22ffeddefc433c9aa4c76779bb73a5c682"
+      "path": "src/assets/fonts/BalooBhai2/BalooBhai2-Medium.ttf",
+      "sha1": "5e0ff453e26152bf79e8ad50d8864f8a8ee2fd20"
     },
     {
-      "path": "src/assets/fonts/Roboto.ttf",
-      "sha1": "6bd9646ab22c0301ce3adbfe8707213a67900404"
+      "path": "src/assets/fonts/BalooBhai2/BalooBhai2-Regular.ttf",
+      "sha1": "3b93aaee99b1d2c79852c2e890307920156257e7"
+    },
+    {
+      "path": "src/assets/fonts/BalooBhai2/BalooBhai2-SemiBold.ttf",
+      "sha1": "a5bb8f0c372fef3b0cf1b1ac19b626c88fa7a24b"
+    },
+    {
+      "path": "src/assets/fonts/Inter/Inter-Bold.ttf",
+      "sha1": "001ec1ea9a5f752d3248769c174b6fc030ab7dab"
+    },
+    {
+      "path": "src/assets/fonts/Inter/Inter-Medium.ttf",
+      "sha1": "3b9f3360ca812f2076db0bfc8bed4cfdd951e74f"
+    },
+    {
+      "path": "src/assets/fonts/Inter/Inter-Regular.ttf",
+      "sha1": "b9984093c0b2b612da5e58e4d4e1ba8c255353dc"
+    },
+    {
+      "path": "src/assets/fonts/Inter/Inter-SemiBold.ttf",
+      "sha1": "ee81756dc9685877077aae9027708aa84bc56027"
+    },
+    {
+      "path": "src/assets/fonts/Roboto/Roboto-Bold.ttf",
+      "sha1": "783de2321d7e6d21f880a10437a9f2c7b45ed198"
+    },
+    {
+      "path": "src/assets/fonts/Roboto/Roboto-Medium.ttf",
+      "sha1": "fa5192203f85ddb667579e1bdf26f12098bb873b"
+    },
+    {
+      "path": "src/assets/fonts/Roboto/Roboto-Regular.ttf",
+      "sha1": "3bff51436aa7eb995d84cfc592cc63e1316bb400"
+    },
+    {
+      "path": "src/assets/fonts/Roboto/Roboto-SemiBold.ttf",
+      "sha1": "9ca139684fe902c8310dd82991648376ac9838db"
     }
   ]
 }
