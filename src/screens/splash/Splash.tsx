@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import { View, Image, StyleSheet, ActivityIndicator, Dimensions } from "react-native";
 import LinearGradient from "react-native-linear-gradient"; // or "expo-linear-gradient"
-import { useNavigation, NavigationProp } from "@react-navigation/native";
 import { useAuth } from "../../contexts/AuthProvider";
+import { useTheme } from "../../contexts/ThemeProvider";
 
 const { width, height } = Dimensions.get("window");
 
 
 export default function Splash({ navigation }: { navigation: any }) {
   const { isLoading, user } = useAuth();
-
+  const { colors } = useTheme();
   useEffect(() => {
     if (!isLoading && user) {
       console.log("User found:", user);
@@ -17,9 +17,9 @@ export default function Splash({ navigation }: { navigation: any }) {
         index: 0,
         routes: [
           {
-            name: "Main", // Stack screen
+            name: "Main",
             params: {
-              screen: "HomeTab", // First Bottom Tab
+              screen: "HomeTab",
             },
           },
         ],
@@ -28,30 +28,31 @@ export default function Splash({ navigation }: { navigation: any }) {
   }, [isLoading, user]);
 
   return (
-    <LinearGradient colors={["#10579B", "#3AA4C8"]} style={styles.container}>
-      <Image
-        source={require("../../assets/images/top_worldmap.png")}
-        style={styles.topMap}
-        resizeMode="cover"
-      />
-      <Image
-        source={require("../../assets/images/logo.png")}
-        style={styles.logo}
-        resizeMode="contain"
-      />
-      <Image
-        source={require("../../assets/images/bottom_sky.png")}
-        style={styles.bottomSky}
-        resizeMode="cover"
-      />
+    <View style={{ flex: 1 }}>
+      <LinearGradient colors={["#10579B", "#3AA4C8"]} style={styles.container}>
+        <Image
+          source={require("../../assets/images/top_worldmap.png")}
+          style={styles.topMap}
+          resizeMode="cover"
+        />
+        <Image
+          source={require("../../assets/images/logo.png")}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+        <Image
+          source={require("../../assets/images/bottom_sky.png")}
+          style={styles.bottomSky}
+          resizeMode="cover"
+        />
 
-      {/* Spinner while loading */}
-      {isLoading && (
-        <View style={styles.spinnerOverlay}>
-          <ActivityIndicator size="large" color="#fff" />
-        </View>
-      )}
-    </LinearGradient>
+        {isLoading && (
+          <View style={styles.spinnerOverlay}>
+            <ActivityIndicator size="large" color={colors.error} />
+          </View>
+        )}
+      </LinearGradient>
+    </View>
   );
 }
 
@@ -76,10 +77,8 @@ const styles = StyleSheet.create({
   },
   spinnerOverlay: {
     position: "absolute",
-    top: 0,
-    left: 0,
+    bottom: 30,
     width,
-    height,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "rgba(0,0,0,0.25)",

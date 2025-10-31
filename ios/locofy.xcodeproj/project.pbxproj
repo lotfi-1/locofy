@@ -11,11 +11,20 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		9C8D2E74C0D54EA0B41B80FE /* BalooBhai2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0F8F4275FFA4C34991D9FA5 /* BalooBhai2.ttf */; };
-		BB5CF6EC3CC1475CB29603CC /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9441D69685A4BBE83C0D7A3 /* Inter.ttf */; };
-		8BA39887AE304BED9AE6FC28 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40B19130DCAD4492A763FBCF /* Roboto.ttf */; };
 		570C435593D34BDEB1667E84 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE93AA2FCA2346AE8FAAFA44 /* BootSplash.storyboard */; };
 		E49C374FCB99466F90D18C71 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7EBBAC8957143EC950CBFA9 /* Colors.xcassets */; };
+		32B207D1C8AB4DBD8C0F40DE /* BalooBhai2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C0FEBD31CE94AE8B53DB01A /* BalooBhai2-Bold.ttf */; };
+		D73A10AABA6040288DFB4439 /* BalooBhai2-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED2A9AE3EDE74FABB1ED96B1 /* BalooBhai2-Medium.ttf */; };
+		A8D897B68E90492AB0B45386 /* BalooBhai2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E90A56CBD17C4DFE9A823F80 /* BalooBhai2-Regular.ttf */; };
+		4C78A9DDE22C4E9FB1A06454 /* BalooBhai2-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF84100CA9C44AC982DFB15E /* BalooBhai2-SemiBold.ttf */; };
+		86973E34D3FF476C8BDA5DE5 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74260978664F4ECEB4857BB7 /* Inter-Bold.ttf */; };
+		296A38C683E74BCABC451DE0 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8519AF74783140038045F5AA /* Inter-Medium.ttf */; };
+		DF4BECAF2BF44A2C93BD58BF /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66001593ABD249D78DE38885 /* Inter-Regular.ttf */; };
+		5167F0B7615E49489BEB680B /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4738FB846AD741569C9A2C07 /* Inter-SemiBold.ttf */; };
+		B167B4C5B167479CAB2A1BAD /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3785B2B650F49309FFD1618 /* Roboto-Bold.ttf */; };
+		B31AE5892E99492A850EE3E0 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7DD7A6886FD4F4F8AF96349 /* Roboto-Medium.ttf */; };
+		2AEEC523B44B4541A192B159 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA9B10C84791469293960629 /* Roboto-Regular.ttf */; };
+		A88F30A2F5144DE5BDAC57F8 /* Roboto-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 356AE8BC9EE04AAC993F341A /* Roboto-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,11 +38,20 @@
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = locofy/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = locofy/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		A0F8F4275FFA4C34991D9FA5 /* BalooBhai2.ttf */ = {isa = PBXFileReference; name = "BalooBhai2.ttf"; path = "../src/assets/fonts/BalooBhai2.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B9441D69685A4BBE83C0D7A3 /* Inter.ttf */ = {isa = PBXFileReference; name = "Inter.ttf"; path = "../src/assets/fonts/Inter.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		40B19130DCAD4492A763FBCF /* Roboto.ttf */ = {isa = PBXFileReference; name = "Roboto.ttf"; path = "../src/assets/fonts/Roboto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		AE93AA2FCA2346AE8FAAFA44 /* BootSplash.storyboard */ = {isa = PBXFileReference; name = "BootSplash.storyboard"; path = "locofy/BootSplash.storyboard"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		F7EBBAC8957143EC950CBFA9 /* Colors.xcassets */ = {isa = PBXFileReference; name = "Colors.xcassets"; path = "locofy/Colors.xcassets"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = folder.assetcatalog; explicitFileType = undefined; includeInIndex = 0; };
+		2C0FEBD31CE94AE8B53DB01A /* BalooBhai2-Bold.ttf */ = {isa = PBXFileReference; name = "BalooBhai2-Bold.ttf"; path = "../src/assets/fonts/BalooBhai2/BalooBhai2-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		ED2A9AE3EDE74FABB1ED96B1 /* BalooBhai2-Medium.ttf */ = {isa = PBXFileReference; name = "BalooBhai2-Medium.ttf"; path = "../src/assets/fonts/BalooBhai2/BalooBhai2-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E90A56CBD17C4DFE9A823F80 /* BalooBhai2-Regular.ttf */ = {isa = PBXFileReference; name = "BalooBhai2-Regular.ttf"; path = "../src/assets/fonts/BalooBhai2/BalooBhai2-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BF84100CA9C44AC982DFB15E /* BalooBhai2-SemiBold.ttf */ = {isa = PBXFileReference; name = "BalooBhai2-SemiBold.ttf"; path = "../src/assets/fonts/BalooBhai2/BalooBhai2-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		74260978664F4ECEB4857BB7 /* Inter-Bold.ttf */ = {isa = PBXFileReference; name = "Inter-Bold.ttf"; path = "../src/assets/fonts/Inter/Inter-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8519AF74783140038045F5AA /* Inter-Medium.ttf */ = {isa = PBXFileReference; name = "Inter-Medium.ttf"; path = "../src/assets/fonts/Inter/Inter-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		66001593ABD249D78DE38885 /* Inter-Regular.ttf */ = {isa = PBXFileReference; name = "Inter-Regular.ttf"; path = "../src/assets/fonts/Inter/Inter-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4738FB846AD741569C9A2C07 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; name = "Inter-SemiBold.ttf"; path = "../src/assets/fonts/Inter/Inter-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F3785B2B650F49309FFD1618 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; name = "Roboto-Bold.ttf"; path = "../src/assets/fonts/Roboto/Roboto-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E7DD7A6886FD4F4F8AF96349 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; name = "Roboto-Medium.ttf"; path = "../src/assets/fonts/Roboto/Roboto-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FA9B10C84791469293960629 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../src/assets/fonts/Roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		356AE8BC9EE04AAC993F341A /* Roboto-SemiBold.ttf */ = {isa = PBXFileReference; name = "Roboto-SemiBold.ttf"; path = "../src/assets/fonts/Roboto/Roboto-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,9 +131,18 @@
 		86ABE0143FF347D4945A2D65 /* Resources */ = {
 			isa = "PBXGroup";
 			children = (
-				A0F8F4275FFA4C34991D9FA5 /* BalooBhai2.ttf */,
-				B9441D69685A4BBE83C0D7A3 /* Inter.ttf */,
-				40B19130DCAD4492A763FBCF /* Roboto.ttf */,
+				2C0FEBD31CE94AE8B53DB01A /* BalooBhai2-Bold.ttf */,
+				ED2A9AE3EDE74FABB1ED96B1 /* BalooBhai2-Medium.ttf */,
+				E90A56CBD17C4DFE9A823F80 /* BalooBhai2-Regular.ttf */,
+				BF84100CA9C44AC982DFB15E /* BalooBhai2-SemiBold.ttf */,
+				74260978664F4ECEB4857BB7 /* Inter-Bold.ttf */,
+				8519AF74783140038045F5AA /* Inter-Medium.ttf */,
+				66001593ABD249D78DE38885 /* Inter-Regular.ttf */,
+				4738FB846AD741569C9A2C07 /* Inter-SemiBold.ttf */,
+				F3785B2B650F49309FFD1618 /* Roboto-Bold.ttf */,
+				E7DD7A6886FD4F4F8AF96349 /* Roboto-Medium.ttf */,
+				FA9B10C84791469293960629 /* Roboto-Regular.ttf */,
+				356AE8BC9EE04AAC993F341A /* Roboto-SemiBold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -183,11 +210,20 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				9C8D2E74C0D54EA0B41B80FE /* BalooBhai2.ttf in Resources */,
-				BB5CF6EC3CC1475CB29603CC /* Inter.ttf in Resources */,
-				8BA39887AE304BED9AE6FC28 /* Roboto.ttf in Resources */,
 				570C435593D34BDEB1667E84 /* BootSplash.storyboard in Resources */,
 				E49C374FCB99466F90D18C71 /* Colors.xcassets in Resources */,
+				32B207D1C8AB4DBD8C0F40DE /* BalooBhai2-Bold.ttf in Resources */,
+				D73A10AABA6040288DFB4439 /* BalooBhai2-Medium.ttf in Resources */,
+				A8D897B68E90492AB0B45386 /* BalooBhai2-Regular.ttf in Resources */,
+				4C78A9DDE22C4E9FB1A06454 /* BalooBhai2-SemiBold.ttf in Resources */,
+				86973E34D3FF476C8BDA5DE5 /* Inter-Bold.ttf in Resources */,
+				296A38C683E74BCABC451DE0 /* Inter-Medium.ttf in Resources */,
+				DF4BECAF2BF44A2C93BD58BF /* Inter-Regular.ttf in Resources */,
+				5167F0B7615E49489BEB680B /* Inter-SemiBold.ttf in Resources */,
+				B167B4C5B167479CAB2A1BAD /* Roboto-Bold.ttf in Resources */,
+				B31AE5892E99492A850EE3E0 /* Roboto-Medium.ttf in Resources */,
+				2AEEC523B44B4541A192B159 /* Roboto-Regular.ttf in Resources */,
+				A88F30A2F5144DE5BDAC57F8 /* Roboto-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

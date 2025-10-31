@@ -1,5 +1,6 @@
-import { ApiError } from "@/types/ApiError";
-import { ErrorType } from "@/types/enum/ErrorType";
+import { ApiError } from "../types/ApiError";
+import { ErrorType } from "../types/enum/ErrorType";
+
 
 export default function handleHttpError(status: number): ApiError {
   switch (status) {
