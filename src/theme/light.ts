@@ -5,6 +5,7 @@ export default {
     primary: '#191919',
     secondary: '#1262AE',
     muted: '#7E8B97',
+    gray: "#4D5760"
   },
   transparent: "transparent",
   primary: '#1262AE',

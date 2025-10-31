@@ -1,2 +1,3 @@
 export { default as DrawerHeaderLeft } from './DrawerHeaderLeft';
-export { default as BackToHomeHeader } from './BackToHomeHeader';
+export { default as ProfileHeader } from './ProfileHeader';
+export { default as ProfileHomeHeaderRight } from './ProfileHomeHeaderRight';

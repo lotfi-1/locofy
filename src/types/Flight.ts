@@ -8,4 +8,5 @@ export interface Flight {
   status: string;
   airline: string;
   covidAdvisory?: { message: string; link: string };
+  imageUrls?: string[]
 }

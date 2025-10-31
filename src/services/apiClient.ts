@@ -1,12 +1,11 @@
 import { ApiError } from "../types/ApiError";
-import { handleHttpError } from "../utils";
-import handleNetworkError from "../utils/handleNetworkError";
+import { handleHttpError, handleNetworkError } from "../utils";
 
 
 
 const API_BASE_URL = 'https://example.com/api';
 
-export async function apiFetch<T>(
+export default async function apiFetch<T>(
   endpoint: string,
   options?: RequestInit
 ): Promise<T | ApiError> {

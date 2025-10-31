@@ -8,12 +8,10 @@ import {
   StatusBar,
 
 } from 'react-native';
-import { HomeMainScreen } from '../screens/main/HomeScreen';
+import { HomeMainScreen } from '../screens/main/home/HomeScreen';
 import { useTheme } from '../contexts/ThemeProvider';
 import { getTabBarOptions } from '../config/tabBarConfig';
-import { BackToHomeHeader, DrawerHeaderLeft } from '../components/headers';
 import { getHomeTabOptions } from '../config/homeTabConfig';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { BookingScreen } from '../screens/main/BookingScreen';
 import { SearchScreen } from '../screens/main/SearchScreen';
 import { ProfileScreen } from '../screens/main/ProfileScreen';

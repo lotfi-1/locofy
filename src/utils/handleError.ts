@@ -2,7 +2,7 @@ import { ApiError } from "../types/ApiError";
 import { ErrorType } from "../types/enum/ErrorType";
 
 
-export default function handleHttpError(status: number): ApiError {
+export  function handleHttpError(status: number): ApiError {
   switch (status) {
     case 400:
       return { type: ErrorType.VALIDATION_ERROR, message: 'Invalid request data.' };
@@ -16,3 +16,14 @@ export default function handleHttpError(status: number): ApiError {
       return { type: ErrorType.UNKNOWN_ERROR, message: 'An unexpected error occurred.' };
   }
 } 
+
+export  function handleNetworkError(_err: Error): ApiError {
+  return {
+    type: ErrorType.NETWORK_ERROR,
+    message: 'Network connection failed. Please check your internet connection.'
+  };
+}
+
+export const shouldShowRetry = (errorType: ErrorType): boolean => {
+  return errorType !== ErrorType.UNAUTHORIZED;
+};

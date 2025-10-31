@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { User } from '../types/User';
-import { authorization } from '../services/authService';
 import { ApiError } from '../types/ApiError';
+import { isApiError } from '../utils';
+import { authorization } from '../services';
 
 
 
@@ -76,8 +77,4 @@ export const useAuth = (): AuthContextProps => {
     throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
-};
-
-const isApiError = (res: unknown): res is ApiError => {
-  return typeof res === "object" && res !== null && "type" in res && "message" in res;
 };

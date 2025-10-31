@@ -3,7 +3,7 @@ import { useTheme } from "../../contexts/ThemeProvider";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { useAuth } from "../../contexts/AuthProvider";
 
-export default function ProfileHeaderRight() {
+export default function ProfileHomeHeaderRight() {
   const { colors } = useTheme();
   const { user } = useAuth();
   const profileUrl = user?.profileImage;
