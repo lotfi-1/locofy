@@ -7,30 +7,16 @@ import { fetchUpcomingFlightAPI, toggleFavoriteFlightApi } from '../../services'
 
 interface FlightState {
   upcomingFlight: Flight | null;
-  loading: {
-    fetch: boolean;
-    refresh: boolean;
-    toggleFavorite: boolean;
-  };
-  errors: {
-    fetch: ApiError | null;
-    toggleFavorite: ApiError | null;
-  };
-  favoriteAction: 'added' | 'removed' | null;
+  isLoading: boolean;
+  isRefreshing: boolean;
+  error: ApiError | null;
 }
 
 const initialState: FlightState = {
   upcomingFlight: null,
-  loading: {
-    fetch: false,
-    refresh: false,
-    toggleFavorite: false,
-  },
-  errors: {
-    fetch: null,
-    toggleFavorite: null,
-  },
-  favoriteAction: null,
+  isLoading: false,
+  isRefreshing: false,
+  error: null
 };
 
 export const fetchUpcomingFlight = createAsyncThunk(
@@ -69,94 +55,51 @@ export const refreshUpcomingFlight = createAsyncThunk(
   }
 );
 
-export const toggleFavorite = createAsyncThunk(
-  'flight/toggleFavorite',
-  async ({ token, flight }: { token: string; flight: Flight }, { rejectWithValue }) => {
-    try {
-      const wasFavorite = flight.isFavorite;
-      const result = await toggleFavoriteFlightApi(token, flight);
-      if (isApiError(result)) {
-        return rejectWithValue(result);
-      }
-      return { flight: result, wasFavorite };
-    } catch (error) {
-      return rejectWithValue({
-        type: ErrorType.UNKNOWN_ERROR,
-        message: 'Failed to update favorite. Please try again.',
-      });
-    }
-  }
-);
-
 const flightSlice = createSlice({
   name: 'flight',
   initialState,
   reducers: {
-    clearFetchError: (state) => {
-      state.errors.fetch = null;
+    clearError: (state) => {
+      state.error = null;
     },
-    clearFavoriteError: (state) => {
-      state.errors.toggleFavorite = null;
-    },
-    clearAllErrors: (state) => {
-      state.errors.fetch = null;
-      state.errors.toggleFavorite = null;
-    },
-    clearFavoriteAction: (state) => {
-      state.favoriteAction = null;
+    updateFlight: (state, action) => {
+      state.upcomingFlight = action.payload;
     },
     resetFlight: () => initialState,
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchUpcomingFlight.pending, (state) => {
-        state.loading.fetch = true;
-        state.errors.fetch = null;
+        state.isLoading = true;
+        state.error = null;
       })
       .addCase(fetchUpcomingFlight.fulfilled, (state, action: PayloadAction<Flight>) => {
-        state.loading.fetch = false;
+        state.isLoading = false;
         state.upcomingFlight = action.payload;
-        state.errors.fetch = null;
+        state.error = null;
       })
       .addCase(fetchUpcomingFlight.rejected, (state, action) => {
-        state.loading.fetch = false;
-        state.errors.fetch = action.payload as ApiError;
+        state.isLoading = false;
+        state.error = action.payload as ApiError;
       });
 
     builder
       .addCase(refreshUpcomingFlight.pending, (state) => {
-        state.loading.refresh = true;
-        state.errors.fetch = null;
+        state.isRefreshing = true;
+        state.error = null;
       })
       .addCase(refreshUpcomingFlight.fulfilled, (state, action: PayloadAction<Flight>) => {
-        state.loading.refresh = false;
+        state.isRefreshing = false;
         state.upcomingFlight = action.payload;
-        state.errors.fetch = null;
+        state.error = null;
       })
       .addCase(refreshUpcomingFlight.rejected, (state, action) => {
-        state.loading.refresh = false;
-        state.errors.fetch = action.payload as ApiError;
+        state.isRefreshing = false;
+        state.error = action.payload as ApiError;
       });
 
-    builder
-      .addCase(toggleFavorite.pending, (state) => {
-        state.loading.toggleFavorite = true;
-        state.errors.toggleFavorite = null;
-        state.favoriteAction = null;
-      })
-      .addCase(toggleFavorite.fulfilled, (state, action: PayloadAction<{ flight: Flight; wasFavorite: boolean }>) => {
-        state.upcomingFlight = action.payload.flight;
-        state.loading.toggleFavorite = false;
-        state.errors.toggleFavorite = null;
-        state.favoriteAction = action.payload.wasFavorite ? 'removed' : 'added';
-      })
-      .addCase(toggleFavorite.rejected, (state, action) => {
-        state.errors.toggleFavorite = action.payload as ApiError;
-        state.loading.toggleFavorite = false;
-        state.favoriteAction = null;
-      });
   },
 });
 
-export const { clearFetchError, clearFavoriteError, clearAllErrors, clearFavoriteAction, resetFlight } = flightSlice.actions;
+export const { clearError, updateFlight, resetFlight } = flightSlice.actions;
 export default flightSlice.reducer;

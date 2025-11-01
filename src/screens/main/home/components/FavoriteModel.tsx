@@ -1,18 +1,14 @@
 import Modal from "react-native-modal";
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 import { useEffect, useState } from "react";
-import { clearFavoriteAction, toggleFavorite } from "../../../../store/slices";
 import { View, Text } from "react-native";
 import { useTheme } from "../../../../contexts/ThemeProvider";
-import { Flight } from "../../../../types/Flight";
+import { clearFavoriteError, updateFlight } from "../../../../store/slices";
 
-interface FlightModelProps {
-  flight: Flight;
-}
 
-export const FavoriteModel: React.FC<FlightModelProps> = ({ flight }: FlightModelProps) => {
+export const FavoriteModel: React.FC = () => {
   const { colors } = useTheme();
-  const favoriteAction = useAppSelector((state) => state.flight.favoriteAction);
+  const { favoriteAction, flight } = useAppSelector((state) => state.favoriteFlight);
 
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
@@ -27,12 +23,16 @@ export const FavoriteModel: React.FC<FlightModelProps> = ({ flight }: FlightMode
 
     setAlertMessage(msg);
     setShowAlert(true);
+    dispatch(updateFlight(flight))
+
     const timeout = setTimeout(() => {
-      dispatch(clearFavoriteAction());
+      dispatch(clearFavoriteError());
       setShowAlert(false)
     }, 2000);
+
     return () => clearTimeout(timeout);
   }, [favoriteAction]);
+
   return <Modal
     isVisible={showAlert}
     animationIn="fadeInUp"

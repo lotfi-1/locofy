@@ -2,13 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Flight } from '../../../../types/Flight';
 import { useTheme } from '../../../../contexts/ThemeProvider';
-
 import { HeartSvg } from '../../../../assets';
 import { AppFonts } from '../../../../utils';
 import { FlightInfo } from './FlightInfo';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
-import { toggleFavorite } from '../../../../store/slices';
 import { FavoriteModel } from './FavoriteModel';
+import { toggleFavorite } from '../../../../store/slices';
 
 interface FlightCardProps {
   flight: Flight;
@@ -18,8 +17,7 @@ export const FlightCard: React.FC<FlightCardProps> = ({ flight }) => {
   const { colors } = useTheme();
   const dispatch = useAppDispatch();
 
-  const isLoading = useAppSelector((state) => state.flight.loading.toggleFavorite);
-  const error = useAppSelector((state) => state.flight.errors.toggleFavorite);
+  const { isLoading, error } = useAppSelector((state) => state.favoriteFlight);
   const token = 'testToken';
 
   const handleToggleFavorite = () => {
@@ -66,7 +64,7 @@ export const FlightCard: React.FC<FlightCardProps> = ({ flight }) => {
         </ImageBackground>
         <FlightInfo flight={flight} />
       </View>
-      <FavoriteModel flight={flight}/>
+      <FavoriteModel />
     </>
   );
 };

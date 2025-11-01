@@ -11,12 +11,11 @@ interface HomeMainScreenProps {
 }
 
 
-
 export function HomeMainScreen({ navigation }: HomeMainScreenProps) {
   const { colors } = useTheme();
   const dispatch = useAppDispatch();
 
-  const { upcomingFlight, loading, errors } = useAppSelector(
+  const { upcomingFlight, isLoading,isRefreshing, error } = useAppSelector(
     (state) => state.flight
   );
   const {
@@ -38,7 +37,7 @@ export function HomeMainScreen({ navigation }: HomeMainScreenProps) {
     dispatch(refreshTrendingDestinations(token));
   }, [dispatch, token]);
 
-  const isRefreshingData = loading.refresh || trendingRefreshing;
+  const isRefreshingData = isRefreshing || trendingRefreshing;
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
@@ -56,8 +55,8 @@ export function HomeMainScreen({ navigation }: HomeMainScreenProps) {
         }
       >
         <UpcomingFlightSection
-          isLoading={loading.fetch}
-          error={errors.fetch}
+          isLoading={isLoading}
+          error={error}
           onRetry={() => dispatch(fetchUpcomingFlight(token))}
           upcomingFlight={upcomingFlight}
         />
