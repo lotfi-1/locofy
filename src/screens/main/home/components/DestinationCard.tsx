@@ -15,7 +15,7 @@ export const DestinationCard = ({ destination }: DestinationCardProps) => {
       <View style={styles.info}>
         <View>
           <Text style={[styles.name, { color: colors.text.primary }]}>{destination.name}</Text>
-          <Text style={[styles.country, { color: colors.text.muted }]} > {destination.country}</Text>
+          <Text style={[styles.country, { color: colors.text.muted }]} >{destination.country}</Text>
         </View>
         <Text style={[styles.duration, { color: colors.text.gray, backgroundColor: colors.background }]}>{destination.duration}</Text>
       </View>

@@ -65,6 +65,6 @@ export async function toggleFavoriteFlightApi(token: string, flight: Flight): Pr
         isFavorite: !flight.isFavorite
       });
       // resolve(error);
-    }, 1000);
+    }, 2000);
   });
 }
