@@ -23,12 +23,11 @@ const flight: Flight = {
     "message": "Please check your destination’s latest COVID-19 guidelines before travel.",
     "link": "https://example.com/covid-advisory"
   },
-
-
+  isFavorite: false
 };
 
 
-export async function fetchUpcomingFlight(token: string): Promise<Flight | ApiError> {
+export async function fetchUpcomingFlightAPI(token: string): Promise<Flight | ApiError> {
   // return await apiFetch("/upcoming-flight", {
   //   headers: {
   //     "Authorization": `Bearer ${token}`,
@@ -41,6 +40,31 @@ export async function fetchUpcomingFlight(token: string): Promise<Flight | ApiEr
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(flight);
+    }, 1000);
+  });
+}
+
+export async function toggleFavoriteFlightApi(token: string, flight: Flight): Promise<Flight | ApiError> {
+  // return await apiFetch("/add-favorate", {
+  //   headers: {
+  //     "Authorization": `Bearer ${token}`,
+  //   }
+  // });
+  const errorMessage = flight.isFavorite
+    ? 'Failed to remove from favorites'
+    : 'Failed to add to favorites'
+
+  const error: ApiError = {
+    message: errorMessage,
+    type: ErrorType.NOT_FOUND
+  }
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({
+        ...flight,
+        isFavorite: !flight.isFavorite
+      });
+      // resolve(error);
     }, 1000);
   });
 }

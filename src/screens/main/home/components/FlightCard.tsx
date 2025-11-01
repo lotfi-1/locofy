@@ -1,45 +1,73 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, Dimensions, Touchable, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Flight } from '../../../../types/Flight';
 import { useTheme } from '../../../../contexts/ThemeProvider';
 
 import { HeartSvg } from '../../../../assets';
 import { AppFonts } from '../../../../utils';
 import { FlightInfo } from './FlightInfo';
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
+import { toggleFavorite } from '../../../../store/slices';
+import { FavoriteModel } from './FavoriteModel';
 
 interface FlightCardProps {
   flight: Flight;
 }
 
-const { width } = Dimensions.get("window");
-
 export const FlightCard: React.FC<FlightCardProps> = ({ flight }) => {
   const { colors } = useTheme();
+  const dispatch = useAppDispatch();
+
+  const isLoading = useAppSelector((state) => state.flight.loading.toggleFavorite);
+  const error = useAppSelector((state) => state.flight.errors.toggleFavorite);
+  const token = 'testToken';
+
+  const handleToggleFavorite = () => {
+    dispatch(toggleFavorite({ token, flight }));
+  };
+
+
 
   return (
-    <View style={styles.wrapper}>
-      <ImageBackground
-        source={{ uri: flight.airline }}
-        style={styles.image}
-        imageStyle={[styles.imageBg, { backgroundColor: colors.surface }]}
-      >
-        <View style={styles.overlay} />
+    <>
+      <View style={styles.wrapper}>
+        <ImageBackground
+          source={{ uri: flight.airline }}
+          style={styles.image}
+          imageStyle={[styles.imageBg, { backgroundColor: colors.surface }]}
+        >
+          <View style={styles.overlay} />
 
-        <TouchableOpacity>
-          <HeartSvg stroke={colors.white} />
-        </TouchableOpacity>
+          <TouchableOpacity
+            onPress={handleToggleFavorite}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <ActivityIndicator size="small" color={colors.white} />
+            ) : (
+              <HeartSvg
+                stroke={flight.isFavorite ? colors.transparent : colors.white}
+                fill={flight.isFavorite ? colors.error : colors.transparent}
+              />
+            )}
+          </TouchableOpacity>
 
-        <View style={styles.info}>
-          <Text style={[styles.label, { color: colors.white }]}>From</Text>
-          <View style={styles.row}>
-            <Text style={[styles.city, { color: colors.white }]}>{flight.from.city}</Text>
-            <Text style={[styles.price, { color: colors.white }]}>${flight.priceUSD}</Text>
+          <View style={styles.info}>
+            <Text style={[styles.label, { color: colors.white }]}>From</Text>
+            <View style={styles.row}>
+              <Text style={[styles.city, { color: colors.white }]}>
+                {flight.from.city}
+              </Text>
+              <Text style={[styles.price, { color: colors.white }]}>
+                ${flight.priceUSD}
+              </Text>
+            </View>
           </View>
-        </View>
-      </ImageBackground>
-
-      <FlightInfo flight={flight} />
-    </View>
+        </ImageBackground>
+        <FlightInfo flight={flight} />
+      </View>
+      <FavoriteModel flight={flight}/>
+    </>
   );
 };
 
@@ -87,3 +115,5 @@ const styles = StyleSheet.create({
     fontSize: 28,
   },
 });
+
+

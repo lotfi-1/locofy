@@ -1,32 +1,44 @@
-import { ActivityIndicator, FlatList, RefreshControl, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { RefreshControl, ScrollView, StatusBar, StyleSheet, View } from "react-native";
 import { useTheme } from "../../../contexts/ThemeProvider";
-import { useUpcomingFlights } from './hooks/useUpcomingFlights';
-import { FlightCard } from './components/FlightCard';
-import { ErrorView } from './components/ErrorView';
-import { EmptyState } from './components/EmptyState';
-import { useTrendingDestinations } from "./hooks/useTrendingDestinations";
-import { DestinationCard } from "./components/DestinationCard";
 import { UpcomingFlightSection } from "./components/sections/UpcomingFlightSection";
 import { TrendingDestinationsSection } from "./components/sections/TrendingDestinationsSection";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { fetchTrendingDestinations, fetchUpcomingFlight, refreshTrendingDestinations, refreshUpcomingFlight } from "../../../store/slices";
 
 interface HomeMainScreenProps {
   navigation: any;
 }
 
 
+
 export function HomeMainScreen({ navigation }: HomeMainScreenProps) {
   const { colors } = useTheme();
+  const dispatch = useAppDispatch();
 
-  const upcomingFlightQuery = useUpcomingFlights("testToken");
-  const trendingQuery = useTrendingDestinations("testToken");
+  const { upcomingFlight, loading, errors } = useAppSelector(
+    (state) => state.flight
+  );
+  const {
+    destinations,
+    isLoading: trendingLoading,
+    error: trendingError,
+    isRefreshing: trendingRefreshing,
+  } = useAppSelector((state) => state.trending);
 
-  const handleRefresh = () => {
-    upcomingFlightQuery.refresh();
-    trendingQuery.refresh();
-  };
+  const token = 'testToken';
 
-  const isRefreshing = upcomingFlightQuery.refreshing || trendingQuery.refreshing;
+  useEffect(() => {
+    dispatch(fetchUpcomingFlight(token));
+    dispatch(fetchTrendingDestinations(token));
+  }, [dispatch, token]);
+
+  const handleRefresh = useCallback(() => {
+    dispatch(refreshUpcomingFlight(token));
+    dispatch(refreshTrendingDestinations(token));
+  }, [dispatch, token]);
+
+  const isRefreshingData = loading.refresh || trendingRefreshing;
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
@@ -36,7 +48,7 @@ export function HomeMainScreen({ navigation }: HomeMainScreenProps) {
         showsVerticalScrollIndicator={false}
         refreshControl={
           <RefreshControl
-            refreshing={isRefreshing}
+            refreshing={isRefreshingData}
             onRefresh={handleRefresh}
             colors={[colors.primary]}
             tintColor={colors.primary}
@@ -44,17 +56,17 @@ export function HomeMainScreen({ navigation }: HomeMainScreenProps) {
         }
       >
         <UpcomingFlightSection
-          upcomingFlight={upcomingFlightQuery.upcomingFlight}
-          isLoading={upcomingFlightQuery.isLoading}
-          error={upcomingFlightQuery.error}
-          onRetry={upcomingFlightQuery.retry}
+          isLoading={loading.fetch}
+          error={errors.fetch}
+          onRetry={() => dispatch(fetchUpcomingFlight(token))}
+          upcomingFlight={upcomingFlight}
         />
 
         <TrendingDestinationsSection
-          destinations={trendingQuery.trendingDistinations}
-          isLoading={trendingQuery.isLoading}
-          error={trendingQuery.error}
-          onRetry={trendingQuery.retry}
+          destinations={destinations}
+          isLoading={trendingLoading}
+          error={trendingError}
+          onRetry={() => dispatch(fetchTrendingDestinations(token))}
           navigation={navigation}
         />
       </ScrollView>

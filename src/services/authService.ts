@@ -12,7 +12,7 @@ const mockUser: User = {
 };
 
 
-export async function authorization(token: string): Promise<User | ApiError> {
+export async function authorizationAPI(token: string): Promise<User | ApiError> {
   // return await apiFetch("/authorization", {
   //   headers: {
   //     "Authorization": `Bearer ${token}`,

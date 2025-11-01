@@ -1,9 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { User } from '../types/User';
-import { ApiError } from '../types/ApiError';
 import { isApiError } from '../utils';
-import { authorization } from '../services';
+import { authorizationAPI } from '../services';
 
 
 
@@ -32,7 +31,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const token = await AsyncStorage.getItem(AUTH_TOKEN_KEY);
       // if (!token) return;
 
-      const result = await authorization(token ?? "test");
+      const result = await authorizationAPI(token ?? "test");
 
       if (isApiError(result)) {
         await clearAuth();

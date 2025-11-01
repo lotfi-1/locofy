@@ -29,6 +29,5 @@ export const UpcomingFlightSection = ({
   if (!upcomingFlight) {
     return <EmptyState />;
   }
-
   return <FlightCard flight={upcomingFlight} />;
 };

@@ -40,16 +40,13 @@ const destinations: Destination[] = [
 ];
 
 
-export async function fetchTrendindDestinations(token: string): Promise<Destination[] | ApiError> {
+export async function fetchTrendingDestinationsAPI(token: string): Promise<Destination[] | ApiError> {
   // return await apiFetch("/trending-destinations", {
   //   headers: {
   //     "Authorization": `Bearer ${token}`,
   //   }
   // });
-  const error: ApiError = {
-    message: "Hi im error",
-    type: ErrorType.NOT_FOUND
-  }
+
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(destinations);
