@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
   bio: {
     fontSize: 14,
     marginTop: 16,
+    fontFamily: AppFonts.Inter_Regular,
     lineHeight: 24,
     opacity: 0.9,
   },

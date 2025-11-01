@@ -48,7 +48,7 @@ export default function Splash({ navigation }: { navigation: any }) {
 
         {isLoading && (
           <View style={styles.spinnerOverlay}>
-            <ActivityIndicator size="large" color={colors.error} />
+            <ActivityIndicator size="large" color={colors.white} />
           </View>
         )}
       </LinearGradient>
@@ -81,6 +81,5 @@ const styles = StyleSheet.create({
     width,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(0,0,0,0.25)",
   },
 });

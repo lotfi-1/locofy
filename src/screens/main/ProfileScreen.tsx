@@ -1,14 +1,14 @@
 import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { ProfileHeader } from "../../components/headers/ProfileHeader";
 import { useIsFocused } from "@react-navigation/native";
 import { useCallback, useEffect, useState } from "react";
 import ListTile from "../../components/ListTaile";
-import { HelpSvg, LogoutSvg, SettingsSvg, ShieldSvg, UserAsking, WalletSvg } from "../../assets";
+import { HelpSvg, LogoutSvg, SettingsSvg, ShieldSvg, UserAskingSvg, WalletSvg } from "../../assets";
 import { useTheme } from "../../contexts/ThemeProvider";
 import { useAuth } from "../../contexts/AuthProvider";
 import { UserCard } from "../../components/UserCard";
 import { AppFonts } from "../../utils";
 import React from "react";
+import { ProfileHeader } from "../../components/headers";
 
 
 const StatusOverlay = React.memo(({ visible, color }: { visible: boolean; color: string }) => {
@@ -24,7 +24,7 @@ export function ProfileScreen({ navigation }: { navigation: any }) {
   const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
-    if (isFocused) {
+    if (isFocused && !isScrolling) {
       StatusBar.setHidden(true, 'slide');
     } else {
       StatusBar.setHidden(false, 'slide');
@@ -47,7 +47,7 @@ export function ProfileScreen({ navigation }: { navigation: any }) {
   const menuItems = [
     { icon: <WalletSvg fill={colors.accent} />, title: "Payment Details" },
     { icon: <ShieldSvg fill={colors.accent} />, title: "Covid Advisory" },
-    { icon: <UserAsking stroke={colors.accent} />, title: "Referral Code", isNew: true },
+    { icon: <UserAskingSvg stroke={colors.accent} />, title: "Referral Code", isNew: true },
     { icon: <SettingsSvg fill={colors.accent} />, title: "Settings" },
     { icon: <LogoutSvg stroke={colors.accent} />, title: "Logout" },
 

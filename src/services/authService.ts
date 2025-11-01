@@ -1,6 +1,5 @@
 import { ApiError } from "../types/ApiError";
 import { User } from "../types/User";
-import { apiFetch } from "./apiClient";
 
 
 const mockUser: User = {
@@ -13,7 +12,7 @@ const mockUser: User = {
 };
 
 
-export async function authorization(token: string): Promise<User | ApiError> {
+export async function authorizationAPI(token: string): Promise<User | ApiError> {
   // return await apiFetch("/authorization", {
   //   headers: {
   //     "Authorization": `Bearer ${token}`,
@@ -22,6 +21,6 @@ export async function authorization(token: string): Promise<User | ApiError> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(mockUser);
-    }, 2000);
+    }, 1000);
   });
 }

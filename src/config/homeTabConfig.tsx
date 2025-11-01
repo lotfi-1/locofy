@@ -1,15 +1,10 @@
 import { BottomTabNavigationOptions } from "@react-navigation/bottom-tabs";
-import { TabBarIcon } from "../components/navigation/TabBarIcon";
-import { AppFonts } from "../utils";
 import { ParamListBase, RouteProp } from "@react-navigation/native";
-import { Image, Text } from "react-native";
 import { LogoSvg } from "../assets";
-import { DrawerHeaderLeft } from "../components/headers";
-import ProfileHeaderRight from "../components/headers/ProfileHomeHeaderRight";
+import { DrawerHeaderLeft, ProfileHomeHeaderRight } from "../components/headers";
 
 export const getHomeTabOptions = (routeName: RouteProp<ParamListBase, string>, colors: any): BottomTabNavigationOptions => ({
   headerStyle: {
-    // height: 68,
     shadowColor: 'transparent',
     elevation: 0,
     borderBottomWidth: 0,
@@ -29,6 +24,6 @@ export const getHomeTabOptions = (routeName: RouteProp<ParamListBase, string>, c
   },
   headerTitle: () => <LogoSvg />,
   headerLeft: () => <DrawerHeaderLeft />,
-  headerRight: () => <ProfileHeaderRight />
+  headerRight: () => <ProfileHomeHeaderRight />
 
 });

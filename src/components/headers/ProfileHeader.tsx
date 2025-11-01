@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ArrowLeftSvg, EdirSvg } from '../../assets';
 import { useTheme } from '../../contexts/ThemeProvider';
 
-export function ProfileHeader({ navigation }: { navigation: any }) {
+export default function ProfileHeader({ navigation }: { navigation: any }) {
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   return (
@@ -16,13 +16,13 @@ export function ProfileHeader({ navigation }: { navigation: any }) {
       <View style={styles.actions}>
         <TouchableOpacity
           style={[styles.actionIcon, { backgroundColor: colors.surface }]}
-          onPress={() => navigation.navigate('HomeTab')}
+          onPress={() => navigation.navigate('Explore')}
         >
           <ArrowLeftSvg stroke={colors.text.primary} width={24} />
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.actionIcon, { backgroundColor: colors.surface }]}
-          onPress={() => navigation.navigate('HomeTab')}
+          onPress={() => navigation.navigate('Explore')}
         >
           <EdirSvg fill={colors.text.primary} />
         </TouchableOpacity>

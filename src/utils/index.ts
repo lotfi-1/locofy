@@ -1,3 +1,3 @@
 export { default as AppFonts } from "./AppFonts";
-export { default as handleHttpError } from "./handleHttpError";
-export { default as handleNetworkErro } from "./handleNetworkError";
+export * from "./handleError";
+export { default as isApiError } from "./isApiError"

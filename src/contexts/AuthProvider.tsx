@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { User } from '../types/User';
-import { authorization } from '../services/authService';
-import { ApiError } from '../types/ApiError';
+import { isApiError } from '../utils';
+import { authorizationAPI } from '../services';
 
 
 
@@ -31,7 +31,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const token = await AsyncStorage.getItem(AUTH_TOKEN_KEY);
       // if (!token) return;
 
-      const result = await authorization(token ?? "test");
+      const result = await authorizationAPI(token ?? "test");
 
       if (isApiError(result)) {
         await clearAuth();
@@ -76,8 +76,4 @@ export const useAuth = (): AuthContextProps => {
     throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
-};
-
-const isApiError = (res: unknown): res is ApiError => {
-  return typeof res === "object" && res !== null && "type" in res && "message" in res;
 };
