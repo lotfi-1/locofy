@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { View, Image, StyleSheet, ActivityIndicator, Dimensions } from "react-native";
-import LinearGradient from "react-native-linear-gradient"; // or "expo-linear-gradient"
+import LinearGradient from "react-native-linear-gradient";
 import { useAuth } from "../../contexts/AuthProvider";
 import { useTheme } from "../../contexts/ThemeProvider";
+import { Images } from "../../assets";
 
 const { width, height } = Dimensions.get("window");
 
@@ -31,17 +32,17 @@ export default function Splash({ navigation }: { navigation: any }) {
     <View style={{ flex: 1 }}>
       <LinearGradient colors={[colors.primary, colors.accent]} style={styles.container}>
         <Image
-          source={require("../../assets/images/top_worldmap.png")}
+          source={Images.splash.top_worldmap}
           style={styles.topMap}
           resizeMode="cover"
         />
         <Image
-          source={require("../../assets/images/logo.png")}
+          source={Images.logo}
           style={styles.logo}
           resizeMode="contain"
         />
         <Image
-          source={require("../../assets/images/bottom_sky.png")}
+          source={Images.splash.bottom_sky}
           style={styles.bottomSky}
           resizeMode="cover"
         />

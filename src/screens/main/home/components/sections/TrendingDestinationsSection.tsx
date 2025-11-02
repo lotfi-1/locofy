@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
-import { DestinationCard } from '../DestinationCard';
 import { ErrorView } from '../ErrorView';
 import { DestinationCardSkeleton } from '../skeletons/DestinationCardSkeleton';
 import { Destination } from '../../../../../types/Destination';
 import { AppFonts } from '../../../../../utils';
+import { DestinationCard } from '../../../../../components/DestinationCard';
 
 interface TrendingDestinationsSectionProps {
   destinations: Destination[] | null;
@@ -54,6 +54,7 @@ export const TrendingDestinationsSection = ({
           keyExtractor={(item, index) => index.toString()}
           showsHorizontalScrollIndicator={false}
           ItemSeparatorComponent={() => <View style={{ width: 10 }} />}
+          contentContainerStyle={styles.flatListContainerStyle}
         />
       )}
     </View>
@@ -68,7 +69,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 14,
+    paddingHorizontal: 16
+
   },
   trendingTitle: {
     fontSize: 16,
@@ -78,6 +80,11 @@ const styles = StyleSheet.create({
   seeAllText: {
     fontSize: 14,
     fontFamily: AppFonts.Inter_Regular,
+  },
+  flatListContainerStyle: {
+    paddingTop: 14,
+    paddingBottom: 20,
+    paddingHorizontal: 16
   },
 
 

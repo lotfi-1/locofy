@@ -72,6 +72,7 @@ export const FlightCard: React.FC<FlightCardProps> = ({ flight }) => {
 const styles = StyleSheet.create({
   wrapper: {
     gap: 20,
+    paddingHorizontal:16,
     overflow: "hidden",
   },
   image: {

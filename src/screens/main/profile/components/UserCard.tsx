@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { User } from '../types/User';
-import { AppFonts } from '../utils';
-import { useTheme } from '../contexts/ThemeProvider';
+import { User } from '../../../../types/User';
+import { AppFonts } from '../../../../utils';
+import { useTheme } from '../../../../contexts/ThemeProvider';
+import { Images } from '../../../../assets';
 
 interface UserCardProps {
   user: User;
@@ -18,7 +19,7 @@ export const UserCard: React.FC<UserCardProps> = ({
   onLayout
 }) => {
   const { colors } = useTheme();
-  const defaultImage = require('../assets/images/default-avatar.png');
+  const defaultImage = Images.avatar;
 
   const locationText =
     user?.location?.city && user?.location?.country

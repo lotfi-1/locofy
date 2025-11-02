@@ -16,8 +16,19 @@ export { default as HelpSvg } from './icons/HelpSvg';
 export { default as SettingsSvg } from './icons/SettingsSvg';
 export { default as LogoutSvg } from './icons/LogoutSvg';
 
-
 export { default as RoundedFlightSvg } from './icons/RoundedFlightSvg';
 export { default as LogoSvg } from './logo/logo.svg';
+
+
+export const Images = {
+  logo: require('./images/logo.png'),
+  cover: require('./images/cover.jpg'),
+  splash: {
+    bottom_sky: require('./images/bottom_sky.png'),
+    top_worldmap: require('./images/top_worldmap.png')
+  },
+  banner: require('./images/default-avatar.png'),
+  avatar: require('./images/default-avatar.png'),
+};
 
 

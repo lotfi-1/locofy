@@ -23,5 +23,5 @@ export default {
   error: '#D32F2F',
   white: '#FFFFFF',
   black: '#000000',
-  shadow: 'rgba(0,0,0,0.05)',
+  shadow: '#00000024',
 };

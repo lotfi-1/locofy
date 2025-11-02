@@ -2,6 +2,8 @@ import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { useTheme } from "../../contexts/ThemeProvider";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { useAuth } from "../../contexts/AuthProvider";
+import { Images } from "../../assets";
+
 
 export default function ProfileHomeHeaderRight() {
   const { colors } = useTheme();
@@ -9,7 +11,7 @@ export default function ProfileHomeHeaderRight() {
   const profileUrl = user?.profileImage;
   const navigation = useNavigation<NavigationProp<any>>();
   const hasNotification = true;
-  const defaultImage = require('../../assets/images/default-avatar.png');
+  const defaultImage = Images.avatar;
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate('Profile')}

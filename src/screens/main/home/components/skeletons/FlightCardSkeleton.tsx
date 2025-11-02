@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
   wrapper: {
     gap: 20,
     overflow: 'hidden',
+    paddingHorizontal: 16
   },
   image: {
     height: 180,

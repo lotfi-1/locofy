@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, View } from "react-native";
-import { Destination } from "../../../../types/Destination";
-import { AppFonts } from "../../../../utils";
-import { useTheme } from "../../../../contexts/ThemeProvider";
+import { Destination } from "../types/Destination";
+import { AppFonts } from "../utils";
+import { useTheme } from "../contexts/ThemeProvider";
 
 interface DestinationCardProps {
   destination: Destination
@@ -32,7 +32,14 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     borderRadius: 8,
     padding: 10,
-    gap: 10
+    gap: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08, // ← 8%
+    shadowRadius: 15,    // ← Blur (iOS only)
+    elevation: 4,        // ← Best Android match
+
+
   },
   image: {
     flex: 1

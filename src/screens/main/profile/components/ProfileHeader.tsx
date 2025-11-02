@@ -1,12 +1,12 @@
 import { View, ImageBackground, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { ArrowLeftSvg, EdirSvg } from '../../assets';
-import { useTheme } from '../../contexts/ThemeProvider';
+import { ArrowLeftSvg, EdirSvg, Images } from '../../../../assets';
+import { useTheme } from '../../../../contexts/ThemeProvider';
 
 export default function ProfileHeader({ navigation }: { navigation: any }) {
   const { colors } = useTheme();
   return (
     <ImageBackground
-      source={require('../../assets/images/cover.jpg')}
+      source={Images.cover}
       style={[styles.cover, { paddingTop: 30 }]}
       resizeMode="cover"
     >
@@ -30,11 +30,15 @@ export default function ProfileHeader({ navigation }: { navigation: any }) {
 
 const styles = StyleSheet.create({
   cover: {
-    height: 190,
+    height: 200,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
   },
   actions: {
     height: 68,
-    padding:16,
+    padding: 16,
     flexDirection: 'row',
     justifyContent: 'space-between'
   },

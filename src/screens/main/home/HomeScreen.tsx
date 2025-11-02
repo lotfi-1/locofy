@@ -76,10 +76,9 @@ export function HomeMainScreen({ navigation }: HomeMainScreenProps) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 16,
   },
   scrollContent: {
     flexGrow: 1,
-    paddingVertical: 20,
+    paddingTop: 20,
   },
 });

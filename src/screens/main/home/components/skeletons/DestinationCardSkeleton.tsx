@@ -52,6 +52,9 @@ const destStyles = StyleSheet.create({
     borderRadius: 8,
     padding: 10,
     gap: 10,
+    paddingHorizontal: 16,
+    paddingBottom: 20,
+    marginTop: 14
   },
   imageSkeleton: {
     flex: 1,

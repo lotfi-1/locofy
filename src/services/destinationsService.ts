@@ -50,6 +50,6 @@ export async function fetchTrendingDestinationsAPI(token: string): Promise<Desti
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(destinations);
-    }, 1000);
+    }, 3000);
   });
 }

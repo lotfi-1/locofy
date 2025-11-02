@@ -1,15 +1,15 @@
 import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
 import { useCallback, useEffect, useState } from "react";
-import ListTile from "../../components/ListTaile";
-import { HelpSvg, LogoutSvg, SettingsSvg, ShieldSvg, UserAskingSvg, WalletSvg } from "../../assets";
-import { useTheme } from "../../contexts/ThemeProvider";
-import { useAuth } from "../../contexts/AuthProvider";
-import { UserCard } from "../../components/UserCard";
-import { AppFonts } from "../../utils";
+import ListTile from "../../../components/ListTaile";
+import { HelpSvg, LogoutSvg, SettingsSvg, ShieldSvg, UserAskingSvg, WalletSvg } from "../../../assets";
+import { useTheme } from "../../../contexts/ThemeProvider";
+import { useAuth } from "../../../contexts/AuthProvider";
+import { UserCard } from "./components/UserCard";
+import { AppFonts } from "../../../utils";
 import React from "react";
-import { ProfileHeader } from "../../components/headers";
-
+import ProfileHeader from "./components/ProfileHeader";
+import { Shadow } from 'react-native-shadow-2';
 
 const StatusOverlay = React.memo(({ visible, color }: { visible: boolean; color: string }) => {
   if (!visible) return null;
@@ -43,40 +43,48 @@ export function ProfileScreen({ navigation }: { navigation: any }) {
     }
   }, []);
 
-
   const menuItems = [
     { icon: <WalletSvg fill={colors.accent} />, title: "Payment Details" },
     { icon: <ShieldSvg fill={colors.accent} />, title: "Covid Advisory" },
     { icon: <UserAskingSvg stroke={colors.accent} />, title: "Referral Code", isNew: true },
     { icon: <SettingsSvg fill={colors.accent} />, title: "Settings" },
     { icon: <LogoutSvg stroke={colors.accent} />, title: "Logout" },
-
   ];
+
   return (
     <View style={{ flex: 1 }}>
-      <ScrollView style={{ flex: 1 }}
+      <ScrollView
+        style={{ flex: 1 }}
         onScroll={handleScrolling}
+        scrollEventThrottle={16}
       >
         <ProfileHeader navigation={navigation} />
-        <View style={[styles.content, { backgroundColor: colors.surface }]}>
-          <UserCard user={user!} onLayout={(h) => setCardHeight(h - 45)} />
-          <View style={[{ marginTop: cardHeight, flex: 1 }]}>
-            <View style={[styles .divider, { backgroundColor: colors.divider }]} />
-            <View
-              style={styles.listContainer}
-            >
-              {menuItems.map((item, i) => (
-                <ListTile key={i} icon={item.icon} title={item.title} isNew={item.isNew} />
-              ))}
-
-              <TouchableOpacity style={[styles.helpContainer, { backgroundColor: colors.primaryLight }]}>
-                <HelpSvg />
-                <Text style={[styles.helpText, { color: colors.text.secondary }]}>
-                  Have questions? We are here to help
-                </Text>
-              </TouchableOpacity>
+        <View style={{ marginTop: 190, flex: 1 }}>
+          <Shadow
+            style={{ flex: 1, width: '100%' }}
+            startColor={colors.shadow}
+            distance={20}
+            offset={[0, -8]}
+            sides={{ top: true }}
+          >
+            <View style={[styles.content, { backgroundColor: colors.surface }]}>
+              <UserCard user={user!} onLayout={(h) => setCardHeight(h - 45)} />
+              <View style={[{ marginTop: cardHeight, flex: 1 }]}>
+                <View style={[styles.divider, { backgroundColor: colors.divider }]} />
+                <View style={styles.listContainer}>
+                  {menuItems.map((item, i) => (
+                    <ListTile key={i} icon={item.icon} title={item.title} isNew={item.isNew} />
+                  ))}
+                  <TouchableOpacity style={[styles.helpContainer, { backgroundColor: colors.primaryLight }]}>
+                    <HelpSvg />
+                    <Text style={[styles.helpText, { color: colors.text.secondary }]}>
+                      Have questions? We are here to help
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
             </View>
-          </View>
+          </Shadow>
         </View>
       </ScrollView>
       <StatusOverlay visible={isScrolling} color={colors.surface} />
@@ -93,6 +101,8 @@ const styles = StyleSheet.create({
     flex: 1,
     position: "relative",
     paddingHorizontal: 16,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
   },
   listContainer: {
     gap: 20,

@@ -14,7 +14,7 @@ import { getTabBarOptions } from '../config/tabBarConfig';
 import { getHomeTabOptions } from '../config/homeTabConfig';
 import { BookingScreen } from '../screens/main/BookingScreen';
 import { SearchScreen } from '../screens/main/SearchScreen';
-import { ProfileScreen } from '../screens/main/ProfileScreen';
+import { ProfileScreen } from '../screens/main/profile/ProfileScreen';
 
 
 
