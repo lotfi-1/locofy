@@ -1,11 +1,8 @@
-import React from 'react';
 import { View, ImageBackground, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ArrowLeftSvg, EdirSvg } from '../../assets';
 import { useTheme } from '../../contexts/ThemeProvider';
 
 export default function ProfileHeader({ navigation }: { navigation: any }) {
-  const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   return (
     <ImageBackground

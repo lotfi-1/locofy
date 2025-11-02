@@ -29,7 +29,7 @@ export default function Splash({ navigation }: { navigation: any }) {
 
   return (
     <View style={{ flex: 1 }}>
-      <LinearGradient colors={["#10579B", "#3AA4C8"]} style={styles.container}>
+      <LinearGradient colors={[colors.primary, colors.accent]} style={styles.container}>
         <Image
           source={require("../../assets/images/top_worldmap.png")}
           style={styles.topMap}
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 0,
     width,
-    height: height * 0.35,
+    height: 189,
     opacity: 0.1,
   },
   logo: {

@@ -61,7 +61,7 @@ export function ProfileScreen({ navigation }: { navigation: any }) {
         <View style={[styles.content, { backgroundColor: colors.surface }]}>
           <UserCard user={user!} onLayout={(h) => setCardHeight(h - 45)} />
           <View style={[{ marginTop: cardHeight, flex: 1 }]}>
-            <View style={[styles.divider, { backgroundColor: colors.divider }]} />
+            <View style={[styles .divider, { backgroundColor: colors.divider }]} />
             <View
               style={styles.listContainer}
             >

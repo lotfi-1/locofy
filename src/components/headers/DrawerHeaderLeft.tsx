@@ -10,7 +10,7 @@ export default function DrawerHeaderLeft() {
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.openDrawer()}
+      // onPress={() => navigation.openDrawer()}
     >
       <ListSvg stroke={colors.text.primary} />
     </TouchableOpacity>

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { ApiError } from '../../../../types/ApiError';
 import { useTheme } from '../../../../contexts/ThemeProvider';
-import { shouldShowRetry } from '../../../../utils';
+import { AppFonts, shouldShowRetry } from '../../../../utils';
 
 interface ErrorViewProps {
   error: ApiError;
@@ -14,13 +14,12 @@ export const ErrorView: React.FC<ErrorViewProps> = ({ error, onRetry }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.errorIcon, { color: colors.error }]}>⚠️</Text>
       <Text style={[styles.errorText, { color: colors.error }]}>
         {error.message}
       </Text>
-      
+
       {shouldShowRetry(error.type) && (
-        <TouchableOpacity 
+        <TouchableOpacity
           style={[styles.retryButton, { backgroundColor: colors.primary }]}
           onPress={onRetry}
           activeOpacity={0.7}
@@ -38,12 +37,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 40,
   },
-  errorIcon: {
-    fontSize: 48,
-    marginBottom: 16,
-  },
   errorText: {
     fontSize: 16,
+    fontFamily: AppFonts.Roboto_Medium,
     textAlign: 'center',
     marginBottom: 20,
     lineHeight: 24,

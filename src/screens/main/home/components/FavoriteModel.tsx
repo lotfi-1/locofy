@@ -1,14 +1,13 @@
-import Modal from "react-native-modal";
+import { Modal, View, Text, StyleSheet } from "react-native";
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 import { useEffect, useState } from "react";
-import { View, Text } from "react-native";
 import { useTheme } from "../../../../contexts/ThemeProvider";
 import { clearFavoriteError, updateFlight } from "../../../../store/slices";
-
+import { AppFonts } from "../../../../utils";
 
 export const FavoriteModel: React.FC = () => {
-  const { colors } = useTheme();
   const { favoriteAction, flight } = useAppSelector((state) => state.favoriteFlight);
+  const { colors } = useTheme();
 
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
@@ -16,41 +15,63 @@ export const FavoriteModel: React.FC = () => {
 
   useEffect(() => {
     if (!favoriteAction) return;
-    const msg =
+
+    const message =
       favoriteAction === "added"
         ? "This destination has been added to your favourite"
         : "This destination has been removed from your favourite";
 
-    setAlertMessage(msg);
+    setAlertMessage(message);
     setShowAlert(true);
-    dispatch(updateFlight(flight))
+    dispatch(updateFlight(flight));
 
     const timeout = setTimeout(() => {
       dispatch(clearFavoriteError());
-      setShowAlert(false)
+      setShowAlert(false);
     }, 2000);
 
     return () => clearTimeout(timeout);
   }, [favoriteAction]);
 
-  return <Modal
-    isVisible={showAlert}
-    animationIn="fadeInUp"
-    animationOut="fadeOutDown"
-    backdropOpacity={0.3}
-  >
-    <View
-      style={{
-        backgroundColor: colors.surface,
-        padding: 16,
-        borderRadius: 12,
-        alignItems: "center",
-      }}
+  return (
+    <Modal
+      transparent
+      animationType="fade"
+      visible={showAlert}
     >
-      <Text style={{ color: colors.text.primary, fontSize: 14 }}>{alertMessage}</Text>
-    </View>
-  </Modal>
-    ;
-}
+      <View style={[styles.overlay, { backgroundColor: "rgba(0,0,0,0.3)" }]}>
+        <View
+          style={[
+            styles.container,
+            { backgroundColor: colors.surface }
+          ]}
+        >
+          <Text style={[styles.message, { color: colors.text.primary }]}>
+            {alertMessage}
+          </Text>
+        </View>
+      </View>
+    </Modal>
+  );
+};
 
-
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  container: {
+    marginHorizontal: 16,
+    padding: 16,
+    borderRadius: 12,
+    alignItems: "center",
+    minWidth: 200,
+  },
+  message: {
+    fontFamily: AppFonts.Inter_Medium,
+    fontSize: 14,
+    lineHeight: 24,
+    textAlign: "center"
+  }
+});
