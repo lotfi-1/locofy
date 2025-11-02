@@ -35,9 +35,9 @@ const styles = StyleSheet.create({
     gap: 10,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.08, // ← 8%
-    shadowRadius: 15,    // ← Blur (iOS only)
-    elevation: 4,        // ← Best Android match
+    shadowOpacity: 0.08,
+    shadowRadius: 15,
+    elevation: 4,
 
 
   },
